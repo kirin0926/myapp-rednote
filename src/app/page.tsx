@@ -238,9 +238,9 @@ export default function Home() {
 
       {/* Get Started Section */}
       <section className="w-full max-w-7xl px-4 py-24">
-        <div className="space-y-12">
+        <div>
           {/* Header */}
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-4 mb-12">
             <div className="inline-block px-4 py-1 bg-red-100 text-red-500 rounded-full text-sm font-medium">
               Guide
             </div>
@@ -249,7 +249,7 @@ export default function Home() {
           </div>
 
           {/* Steps Timeline - Desktop */}
-          <div className="relative hidden md:block">
+          <div className="relative hidden md:block mb-12">
             {/* Timeline line */}
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2" />
             
@@ -279,7 +279,7 @@ export default function Home() {
           </div>
 
           {/* Steps List - Mobile */}
-          <div className="md:hidden space-y-8">
+          <div className="md:hidden space-y-8 mb-12">
             {steps.map((step) => (
               <button
                 key={step.number}
@@ -302,7 +302,7 @@ export default function Home() {
           </div>
 
           {/* Step Image */}
-          <div className="mt-8 md:mt-32 relative aspect-video rounded-lg overflow-hidden">
+          <div className="mt-16 md:mt-36 relative aspect-video rounded-lg overflow-hidden">
             <Image
               src={steps[activeStep - 1].image}
               alt={steps[activeStep - 1].title}

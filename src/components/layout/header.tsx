@@ -7,7 +7,7 @@ export function Header() {
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-red-500">📱</span>
-          <span className="text-xl font-bold text-red-500">RedNote Bio</span>
+          <span className="text-xl font-bold text-red-500">How to Use RedNote</span>
         </Link>
         
         <div className="hidden md:flex items-center space-x-8">
