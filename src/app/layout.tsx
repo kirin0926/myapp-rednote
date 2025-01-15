@@ -43,11 +43,10 @@ export default function RootLayout({
       <head>
         {process.env.NODE_ENV === 'production' && (
           <>
-            <Script
+            <script
+              async
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7897104007345492"
               crossOrigin="anonymous"
-              defer
-              strategy="lazyOnload"
             />
             <Script
               src="https://plausible.io/js/script.js"
