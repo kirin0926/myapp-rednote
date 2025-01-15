@@ -1,8 +1,40 @@
+'use client'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useState } from "react"
+
+// 定义步骤数据
+const steps = [
+  {
+    number: 1,
+    title: "Download the App",
+    description: "Get RedNote from the App Store or use our web version to start your journey.",
+    image: "/app-download.png"
+  },
+  {
+    number: 2,
+    title: "Create Your Profile",
+    description: "Set up your profile with a bio, profile picture, and links to your other social media accounts.",
+    image: "/create-profile.png"
+  },
+  {
+    number: 3,
+    title: "Share Your First Post",
+    description: "Create and share your first video or photo post. Import videos directly from TikTok or upload your own content using our easy-to-use tools.",
+    image: "/share-post.png"
+  },
+  {
+    number: 4,
+    title: "Connect & Grow",
+    description: "Engage with the community, follow other creators, and start growing your audience.",
+    image: "/connect-grow.png"
+  }
+]
 
 export default function Home() {
+  const [activeStep, setActiveStep] = useState(1)
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-pink-50">
       {/* Hero Section */}
@@ -119,6 +151,60 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Get Started Section */}
+      <section className="w-full max-w-7xl px-4 py-24">
+        <div className="space-y-12">
+          {/* Header */}
+          <div className="text-center space-y-4">
+            <div className="inline-block px-4 py-1 bg-red-100 text-red-500 rounded-full text-sm font-medium">
+              Guide
+            </div>
+            <h2 className="text-4xl font-bold">Get Started with RedNote</h2>
+            <p className="text-gray-600">Join the most creative community in four easy steps:</p>
+          </div>
+
+          {/* Steps Timeline */}
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2" />
+            
+            {/* Steps */}
+            <div className="relative flex justify-between max-w-4xl mx-auto">
+              {steps.map((step) => (
+                <button
+                  key={step.number}
+                  onClick={() => setActiveStep(step.number)}
+                  className={`relative flex flex-col items-center ${
+                    activeStep === step.number ? 'opacity-100' : 'opacity-50'
+                  }`}
+                >
+                  <div 
+                    className={`w-10 h-10 rounded-full flex items-center justify-center z-10 
+                    ${activeStep === step.number ? 'bg-red-500 text-white' : 'bg-white text-gray-500 border-2 border-gray-200'}`}
+                  >
+                    {step.number}
+                  </div>
+                  <div className="absolute top-12 w-48 text-center">
+                    <h3 className="font-semibold mb-1">{step.title}</h3>
+                    <p className="text-sm text-gray-600">{step.description}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Step Image */}
+          <div className="mt-32 relative aspect-[16/9] rounded-lg overflow-hidden">
+            <Image
+              src={steps[activeStep - 1].image}
+              alt={steps[activeStep - 1].title}
+              fill
+              className="object-cover transition-opacity duration-300"
+            />
           </div>
         </div>
       </section>
