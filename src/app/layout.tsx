@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Layout } from "@/components/layout";
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +12,6 @@ export const metadata: Metadata = {
   keywords: "Red Note, how to use Red Note, Red Note tutorial, Red Note guide",
   authors: [{ name: "howtouserednote.org" }],
   robots: "index, follow",
-  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "How to Use Red Note: Comprehensive Guides and Tutorials",
     description: "Step into the world of Red Note with our easy-to-follow tutorials and expert tips. Master Red Note today!",
@@ -27,6 +27,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -35,7 +41,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script defer data-domain="howtouserednote.org" src="https://plausible.io/js/script.js"></script>
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7897104007345492"
+              crossOrigin="anonymous"
+              defer
+              strategy="lazyOnload"
+            />
+            <Script
+              src="https://plausible.io/js/script.js"
+              data-domain="howtouserednote.org"
+              defer
+              strategy="lazyOnload"
+            />
+          </>
+        )}
       </head>
       <body className={inter.className}>
         <Layout>{children}</Layout>

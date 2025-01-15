@@ -17,9 +17,11 @@ export function Header() {
             <Link href="/#blog" className="hover:text-red-500">Blog</Link>
             {/* <Link href="/showcase" className="hover:text-red-500">Showcase</Link> */}
           </div>
-          <Button variant="ghost" className="text-red-500 hover:text-red-600">
-            Get Started →
-          </Button>
+          <Link href="https://xiaohongshu.com/explore">
+            <Button variant="ghost" className="text-red-500 hover:text-red-600">
+              Get Started →
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile menu button */}

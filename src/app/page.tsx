@@ -150,12 +150,16 @@ export default function Home() {
 
           {/* Download buttons */}
           <div className="flex flex-wrap justify-center gap-4 pt-4">
-            <Button size="lg" className="bg-red-500 hover:bg-red-600">
-              Download iOS App
-            </Button>
-            <Button size="lg" variant="outline">
-              Android
-            </Button>
+            <Link href="https://apps.apple.com/us/app/%E5%B0%8F%E7%BA%A2%E4%B9%A6/id741292507">
+              <Button size="lg" className="bg-red-500 hover:bg-red-600">
+                Download iOS App
+              </Button>
+            </Link>
+            <Link href="https://play.google.com/store/apps/details?id=com.xingin.xhs">
+              <Button size="lg" variant="outline">
+                Android
+              </Button>
+            </Link>
           </div>
 
           {/* Bottom text */}

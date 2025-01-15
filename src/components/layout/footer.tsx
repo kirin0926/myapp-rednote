@@ -1,20 +1,20 @@
 import Link from "next/link"
 
 const productLinks = [
-  { name: "Features", href: "/features" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Guide", href: "/guide" },
+  { name: "Features", href: "#" },
+  { name: "Pricing", href: "#" },
+  { name: "Guide", href: "#guide" },
 ]
 
 const communityLinks = [
-  { name: "Featured Creators", href: "/creators" },
-  { name: "Help Center", href: "/help" },
-  { name: "Blog", href: "/blog" },
+  { name: "Featured Creators", href: "#" },
+  { name: "Help Center", href: "#" },
+  { name: "Blog", href: "#blog" },
 ]
 
 const legalLinks = [
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Terms of Service", href: "/terms" },
+  { name: "Privacy Policy", href: "#" },
+  { name: "Terms of Service", href: "#" },
 ]
 
 export function Footer() {
@@ -100,15 +100,6 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-600">
               © 2024 RedNote Bio • All rights reserved
-            </p>
-            <p className="text-gray-600">
-              build with{" "}
-              <Link 
-                href="https://shipany.io" 
-                className="text-red-500 hover:text-red-600"
-              >
-                ShipAny
-              </Link>
             </p>
           </div>
         </div>
