@@ -1,32 +1,36 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { Button } from "@/components/ui/button";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "How to use RedNotes",
-  description: "Create a beautiful bio link page for all your social media profiles. Perfect for RedNote/Xiaohongshu, Instagram, and more. Join thousands of creators on howtouserednotes.com.",
+  title: "RedNote Bio",
+  description: "Share your moments without TikTok",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={inter.className}>
+        <header className="fixed top-0 left-0 right-0 z-50">
+          <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div className="text-xl font-bold text-red-500">RedNote Bio</div>
+            <div className="space-x-6">
+              <a href="#" className="hover:text-red-500">Features</a>
+              <a href="#" className="hover:text-red-500">Guide</a>
+              <a href="#" className="hover:text-red-500">Showcase</a>
+              <Button variant="ghost" className="text-red-500 hover:text-red-600">
+                Get Started →
+              </Button>
+            </div>
+          </nav>
+        </header>
         {children}
       </body>
     </html>
