@@ -32,6 +32,94 @@ const steps = [
   }
 ]
 
+// 在文件顶部添加特性数据
+const features = [
+  {
+    icon: "💰",
+    title: "One Link for All",
+    description: "Share all your social media profiles and content with just one link"
+  },
+  {
+    icon: "🎨",
+    title: "Beautiful Themes",
+    description: "Customize your bio page with stunning themes and layouts"
+  },
+  {
+    icon: "🔗",
+    title: "Social Integration",
+    description: "Connect seamlessly with Xiaohongshu, Instagram, and more"
+  },
+  {
+    icon: "📊",
+    title: "Analytics Dashboard",
+    description: "Track visitor engagement and optimize your profile"
+  },
+  {
+    icon: "📱",
+    title: "Mobile Optimized",
+    description: "Perfect display on all devices and screens"
+  },
+  {
+    icon: "⚡",
+    title: "Quick Updates",
+    description: "Update your links and content in real-time, with AI"
+  },
+  {
+    icon: "🎥",
+    title: "Video Integration",
+    description: "Import videos from TikTok or upload your own content directly"
+  },
+  {
+    icon: "🔄",
+    title: "Cross-Platform Sharing",
+    description: "Share your videos across TikTok, Instagram, and more with one click"
+  },
+  {
+    icon: "⬇️",
+    title: "Easy to Download TikTok Videos",
+    description: "Download your TikTok video and translate it to Chinese in 1 click"
+  }
+]
+
+// 添加博客数据
+const blogPosts = [
+  {
+    id: 1,
+    title: "Is RedNote Safe?",
+    description: "Is RedNote Safe? A Comprehensive Review for Users",
+    date: "2024-01-14",
+    slug: "is-rednote-safe"
+  },
+  {
+    id: 2,
+    title: "How to Fix Issues with Rednote Not Sending Verification Codes",
+    description: "How to Fix Issues with Rednote Not Sending Verification Codes",
+    date: "2024-01-14",
+    slug: "fix-verification-codes"
+  },
+  {
+    id: 3,
+    title: "The Rise of RedNote How TikTok's Ban Created an Unexpected Cultural Bridge",
+    description: "The Rise of RedNote How TikTok's Ban Created an Unexpected Cultural Bridge",
+    date: "2024-01-14",
+    slug: "rise-of-rednote"
+  },
+  {
+    id: 4,
+    title: "RedNote vs. TikTok The Social Media Showdown of 2025 Amid Looming Ban",
+    description: "RedNote vs. TikTok The Social Media Showdown of 2025 Amid Looming Ban",
+    date: "2024-01-14",
+    slug: "rednote-vs-tiktok"
+  },
+  {
+    id: 5,
+    title: "Beyond TikTok Unleash Your Viral Potential with Rednote",
+    description: "Beyond TikTok Unleash Your Viral Potential with Rednote",
+    date: "2024-01-14",
+    slug: "beyond-tiktok"
+  }
+]
+
 export default function Home() {
   const [activeStep, setActiveStep] = useState(1)
 
@@ -205,6 +293,75 @@ export default function Home() {
               fill
               className="object-cover transition-opacity duration-300"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="w-full max-w-7xl px-4 py-24">
+        <div className="space-y-12">
+          {/* Header */}
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold">Why Choose RedNote Bio</h2>
+            <p className="text-gray-600">The ultimate bio link platform for content creators</p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-300"
+              >
+                {/* Icon Circle */}
+                <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                  <span className="text-2xl">{feature.icon}</span>
+                </div>
+                
+                {/* Title */}
+                <h3 className="text-xl font-semibold mb-2">
+                  {feature.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-gray-600">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Blog Posts Section */}
+      <section className="w-full max-w-7xl px-4 py-24">
+        <div className="space-y-12">
+          <div className="flex justify-between items-center">
+            <h2 className="text-4xl font-bold">Latest Blog Posts</h2>
+            <Link 
+              href="/blog" 
+              className="text-red-500 hover:text-red-600 flex items-center gap-2"
+            >
+              View all posts →
+            </Link>
+          </div>
+
+          <div className="space-y-6">
+            {blogPosts.map((post) => (
+              <Link 
+                key={post.id} 
+                href={`/blog/${post.slug}`}
+                className="block p-6 bg-white rounded-lg hover:shadow-lg transition-all duration-300"
+              >
+                <article className="space-y-2">
+                  <h3 className="text-xl font-semibold hover:text-red-500">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600">{post.description}</p>
+                  <time className="text-sm text-gray-500">{post.date}</time>
+                </article>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
