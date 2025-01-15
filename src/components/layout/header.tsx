@@ -12,9 +12,10 @@ export function Header() {
         
         <div className="hidden md:flex items-center space-x-8">
           <div className="flex items-center space-x-6">
-            <Link href="/features" className="hover:text-red-500">Features</Link>
-            <Link href="/guide" className="hover:text-red-500">Guide</Link>
-            <Link href="/showcase" className="hover:text-red-500">Showcase</Link>
+            {/* <Link href="/features" className="hover:text-red-500">Features</Link> */}
+            <Link href="/#guide" className="hover:text-red-500">Guide</Link>
+            <Link href="/#blog" className="hover:text-red-500">Blog</Link>
+            {/* <Link href="/showcase" className="hover:text-red-500">Showcase</Link> */}
           </div>
           <Button variant="ghost" className="text-red-500 hover:text-red-600">
             Get Started →

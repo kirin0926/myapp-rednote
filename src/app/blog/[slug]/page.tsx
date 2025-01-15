@@ -1,5 +1,8 @@
+"use client"
 import { notFound } from "next/navigation"
 import Link from "next/link"
+
+import { useParams } from 'next/navigation';
 
 const blogPosts = [
   {
@@ -25,8 +28,9 @@ const blogPosts = [
   // ... 其他博客文章
 ]
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((post) => post.slug === params.slug)
+export default function BlogPost() {
+  const { slug } = useParams();
+  const post = blogPosts.find((post) => post.slug === slug);
 
   if (!post) {
     notFound()

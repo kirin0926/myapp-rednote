@@ -237,7 +237,7 @@ export default function Home() {
       </section>
 
       {/* Get Started Section */}
-      <section className="w-full max-w-7xl px-4 py-24">
+      <section id="guide" className="w-full max-w-7xl px-4 py-24">
         <div>
           {/* Header */}
           <div className="text-center space-y-4 mb-12">
@@ -350,7 +350,7 @@ export default function Home() {
       </section>
 
       {/* Latest Blog Posts Section */}
-      <section className="w-full max-w-7xl px-4 py-24">
+      <section id="blog" className="w-full max-w-7xl px-4 py-24">
         <div className="space-y-12">
           <div className="flex justify-between items-center">
             <h2 className="text-4xl font-bold">Latest Blog Posts</h2>
