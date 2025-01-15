@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Metadata } from "next"
 
 const blogPosts = [
   {
@@ -11,6 +12,21 @@ const blogPosts = [
   },
   // ... 其他博客文章
 ]
+
+export const metadata: Metadata = {
+  title: "Red Note Insights: Tips, Tricks, and News",
+  description: "Stay updated with the latest news, tips, and tricks for Red Note. Perfect for beginners and experts alike.",
+  openGraph: {
+    title: "Red Note Insights: Tips, Tricks, and News",
+    description: "Stay updated with the latest news, tips, and tricks for Red Note. Perfect for beginners and experts alike.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Red Note Insights: Tips, Tricks, and News",
+    description: "Stay updated with the latest news, tips, and tricks for Red Note. Perfect for beginners and experts alike.",
+  },
+}
 
 export default function BlogPage() {
   return (

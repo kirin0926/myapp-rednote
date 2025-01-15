@@ -10,25 +10,25 @@ const steps = [
     number: 1,
     title: "Download the App",
     description: "Get RedNote from the App Store or use our web version to start your journey.",
-    image: "/app-download.png"
+    image: "/images/assets/XiaoHongShu vs Douyin.png"
   },
   {
     number: 2,
     title: "Create Your Profile",
     description: "Set up your profile with a bio, profile picture, and links to your other social media accounts.",
-    image: "/create-profile.png"
+    image: "/images/assets/signing-up-for-xiaohongshu-is-a-piece-of-cake-it-only-takes.png"
   },
   {
     number: 3,
     title: "Share Your First Post",
     description: "Create and share your first video or photo post. Import videos directly from TikTok or upload your own content using our easy-to-use tools.",
-    image: "/share-post.png"
+    image: "/images/assets/photo.png"
   },
   {
     number: 4,
     title: "Connect & Grow",
     description: "Engage with the community, follow other creators, and start growing your audience.",
-    image: "/connect-grow.png"
+    image: "/images/assets/5-years-xhs-rednote-marketing-specialist-here-ama.png"
   }
 ]
 
@@ -141,13 +141,6 @@ export default function Home() {
             <br />
             Without TikTok
           </h1>
-          
-          {/* Chinese text */}
-          <h2 className="text-3xl md:text-4xl font-medium">
-            分享您的时刻，
-            <br />
-            没有 TikTok
-          </h2>
 
           {/* Description */}
           <div className="space-y-4 text-gray-600">
@@ -178,7 +171,7 @@ export default function Home() {
           {/* Left side - Image */}
           <div className="relative aspect-[4/3] bg-gradient-to-br from-red-500 to-blue-600 rounded-lg overflow-hidden">
             <Image
-              src="/xiaohongshu-vs-social.png"
+              src="/images/assets/sddefault.jpg"
               alt="XiaoHongShu vs Social Media Platforms"
               fill
               className="object-cover"
@@ -255,8 +248,8 @@ export default function Home() {
             <p className="text-gray-600">Join the most creative community in four easy steps:</p>
           </div>
 
-          {/* Steps Timeline */}
-          <div className="relative">
+          {/* Steps Timeline - Desktop */}
+          <div className="relative hidden md:block">
             {/* Timeline line */}
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2" />
             
@@ -266,17 +259,17 @@ export default function Home() {
                 <button
                   key={step.number}
                   onClick={() => setActiveStep(step.number)}
-                  className={`relative flex flex-col items-center ${
+                  className={`relative flex flex-col items-center transition-opacity duration-300 ${
                     activeStep === step.number ? 'opacity-100' : 'opacity-50'
                   }`}
                 >
                   <div 
-                    className={`w-10 h-10 rounded-full flex items-center justify-center z-10 
+                    className={`w-10 h-10 rounded-full flex items-center justify-center z-10 transition-colors duration-300
                     ${activeStep === step.number ? 'bg-red-500 text-white' : 'bg-white text-gray-500 border-2 border-gray-200'}`}
                   >
                     {step.number}
                   </div>
-                  <div className="absolute top-12 w-48 text-center">
+                  <div className="absolute top-12 w-48 text-center pb-16">
                     <h3 className="font-semibold mb-1">{step.title}</h3>
                     <p className="text-sm text-gray-600">{step.description}</p>
                   </div>
@@ -285,8 +278,31 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Steps List - Mobile */}
+          <div className="md:hidden space-y-8">
+            {steps.map((step) => (
+              <button
+                key={step.number}
+                onClick={() => setActiveStep(step.number)}
+                className={`w-full flex items-start space-x-4 p-4 rounded-lg transition-all duration-300
+                  ${activeStep === step.number ? 'bg-red-50' : 'opacity-50'}`}
+              >
+                <div 
+                  className={`w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center
+                  ${activeStep === step.number ? 'bg-red-500 text-white' : 'bg-white text-gray-500 border-2 border-gray-200'}`}
+                >
+                  {step.number}
+                </div>
+                <div className="text-left">
+                  <h3 className="font-semibold">{step.title}</h3>
+                  <p className="text-sm text-gray-600">{step.description}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+
           {/* Step Image */}
-          <div className="mt-32 relative aspect-[16/9] rounded-lg overflow-hidden">
+          <div className="mt-8 md:mt-32 relative aspect-video rounded-lg overflow-hidden">
             <Image
               src={steps[activeStep - 1].image}
               alt={steps[activeStep - 1].title}
